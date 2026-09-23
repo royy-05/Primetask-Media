@@ -1,0 +1,138 @@
+/* ============================================================================
+   Floating Actions (Scroll To Top & WhatsApp FAB)
+   ============================================================================ */
+
+.floatingActionsContainer {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none; /* Let container be transparent to clicks */
+}
+
+.floatingActionsContainer > * {
+  pointer-events: auto; /* Enable clicks on buttons */
+}
+
+/* Scroll To Top FAB */
+.scrollTopFab {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1e2436;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer !important;
+  opacity: 0;
+  transform: translateY(16px) scale(0.85);
+  pointer-events: none;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+[data-theme="light"] .scrollTopFab {
+  background: #0c1844;
+  color: #ffffff;
+  border: 1px solid rgba(12, 24, 68, 0.2);
+  box-shadow: 0 6px 20px rgba(12, 24, 68, 0.25);
+}
+
+.scrollTopFab.fabVisible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.scrollTopFab:hover {
+  transform: translateY(-4px) scale(1.06);
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.45);
+}
+
+/* WhatsApp FAB */
+.whatsappFab {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #ffffff;
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer !important;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.whatsappSvgIcon {
+  color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.whatsappFab:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+}
+
+.whatsappFab:hover .whatsappSvgIcon {
+  transform: scale(1.05);
+}
+
+/* Gentle Pulse Aura */
+.whatsappPulse {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  opacity: 0.8;
+  animation: whatsappPulseRing 2.2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes whatsappPulseRing {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  60% {
+    transform: scale(1.28);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.28);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .floatingActionsContainer {
+    bottom: 18px;
+    right: 18px;
+    gap: 10px;
+  }
+  .whatsappFab {
+    width: 50px;
+    height: 50px;
+  }
+  .whatsappSvgIcon {
+    width: 28px;
+    height: 28px;
+  }
+  .scrollTopFab {
+    width: 40px;
+    height: 40px;
+  }
+}

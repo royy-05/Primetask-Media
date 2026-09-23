@@ -1,0 +1,215 @@
+/* ==========================================================================
+   Instagram Live Embeds Section
+   ========================================================================== */
+
+.instaEmbedSection {
+  position: relative;
+  padding: 85px 0 100px;
+  background-color: var(--bg);
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+
+/* Header */
+.instaEmbedHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  gap: 2rem;
+}
+
+.instaEmbedHeaderLeft {
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.instaEmbedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #e1306c;
+  font-family: var(--font-heading);
+}
+
+.instaEmbedMainTitle {
+  font-size: 3.4rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: var(--text);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.instaEmbedSubtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0.4rem 0 0;
+}
+
+/* Header Navigation Arrow Buttons & Profile Link */
+.instaEmbedHeaderControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.instaProfileBadgeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 100px;
+  background: rgba(225, 48, 108, 0.12);
+  border: 1px solid rgba(225, 48, 108, 0.3);
+  color: #e1306c;
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.instaProfileBadgeLink:hover {
+  background: #e1306c;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(225, 48, 108, 0.35);
+}
+
+.instaCarouselBtnsGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.instaEmbedNavBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.instaEmbedNavBtn:hover {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.35);
+}
+
+.instaEmbedNavBtn:active {
+  transform: translateY(0);
+}
+
+/* Horizontal Carousel Wrapper */
+.instaEmbedCarouselWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.instaEmbedCarouselTrack {
+  display: flex;
+  gap: 1.6rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 10px 4px 25px;
+  scroll-snap-type: x mandatory;
+}
+
+.instaEmbedCarouselTrack::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual Embed Card */
+.instaEmbedCard {
+  flex: 0 0 340px;
+  width: 340px;
+  scroll-snap-align: start;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), 
+              box-shadow 0.35s ease, 
+              border-color 0.35s ease;
+}
+
+.instaEmbedCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(225, 48, 108, 0.25);
+  border-color: rgba(225, 48, 108, 0.5);
+}
+
+/* Real Instagram Iframe Container */
+.instaIframeContainer {
+  position: relative;
+  width: 100%;
+  height: 645px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.instaRealIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  overflow: hidden;
+  display: block;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .instaEmbedSection {
+    padding: 60px 0 80px;
+  }
+
+  .instaEmbedHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .instaEmbedMainTitle {
+    font-size: 2.5rem;
+  }
+
+  .instaEmbedNavBtn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .instaEmbedCard {
+    flex: 0 0 310px;
+    width: 310px;
+  }
+
+  .instaIframeContainer {
+    height: 615px;
+  }
+}

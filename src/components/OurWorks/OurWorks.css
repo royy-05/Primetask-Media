@@ -1,0 +1,279 @@
+/* Our Featured Works Section - Horizontal Auto-Scrolling Carousel */
+
+.worksSection {
+  position: relative;
+  padding: 80px 0 100px;
+  background-color: var(--bg);
+  overflow: hidden;
+}
+
+/* Header with Title and Right-Side Navigation Arrows */
+.worksHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  gap: 1.5rem;
+}
+
+.worksHeaderLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.worksMainTitle {
+  font-size: 3.8rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: var(--text);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+/* Navigation Arrow Buttons on Right Side of Title */
+.worksHeaderArrows {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.worksArrowBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.worksArrowBtn:hover {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+}
+
+.worksArrowBtn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .worksMainTitle {
+    font-size: 2.6rem;
+  }
+
+  .worksArrowBtn {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Categories Filter Tabs Bar */
+.worksTabsContainer {
+  position: relative;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.worksTabsTrack {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+}
+
+.worksTabsTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.worksTabItem {
+  background: none;
+  border: none;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.2rem 0;
+  white-space: nowrap;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.worksTabItem:hover {
+  color: var(--text);
+}
+
+.worksTabItemActive {
+  color: var(--accent-blue) !important;
+  font-weight: 700;
+}
+
+/* Active Baseline Dot Centered Horizontally */
+.activeBaselineDot {
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  box-shadow: 0 0 8px var(--accent-blue);
+  transform: translate(-50%, calc(50% + 3.5px));
+  z-index: 10;
+}
+
+/* Portfolio Projects Carousel */
+.worksCarouselWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.worksCarouselTrack {
+  display: flex;
+  gap: 1.8rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 10px 4px 28px;
+  scroll-snap-type: x mandatory;
+}
+
+.worksCarouselTrack::-webkit-scrollbar {
+  display: none;
+}
+
+/* Project Card Item */
+.workCardItem {
+  flex: 0 0 350px;
+  width: 350px;
+  scroll-snap-align: start;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.workCardItem:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-blue);
+  box-shadow: 0 16px 40px rgba(59, 130, 246, 0.35);
+}
+
+@media (max-width: 768px) {
+  .workCardItem {
+    flex: 0 0 280px;
+    width: 280px;
+  }
+}
+
+/* Image Container */
+.workImageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.workImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.workCardItem:hover .workImage {
+  transform: scale(1.08);
+}
+
+/* Text Revealed On Hover Only */
+.workHoverContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.8rem 1.4rem 1.4rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(7, 11, 25, 0.95) 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.workCardItem:hover .workHoverContent {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.workCategoryRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.workCategoryLabel {
+  font-size: 0.78rem;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-blue);
+  font-weight: 700;
+}
+
+.workLinkIcon {
+  color: var(--accent-blue);
+}
+
+.workCardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  color: #ffffff;
+  line-height: 1.3;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.workCardResult {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent-magenta);
+  margin: 0.1rem 0 0;
+  line-height: 1.35;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.workCardSummary {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.35;
+  margin: 0.15rem 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}

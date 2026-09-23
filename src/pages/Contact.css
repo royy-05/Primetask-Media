@@ -1,0 +1,944 @@
+/* ============================================================================
+   Contact Us Page Styling - Primetask Media
+   60-Day Strategic Sprint Application Form & Phygital Touchpoints
+   ============================================================================ */
+
+.contactPage {
+  position: relative;
+  background-color: var(--bg);
+  color: var(--text);
+  padding-top: 80px;
+  overflow: hidden;
+}
+
+/* ============================================================================
+   1. HERO SECTION
+   ============================================================================ */
+.contactHeroSection {
+  position: relative;
+  padding: 85px 0 45px;
+}
+
+.contactHeroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(59, 130, 246, 0.05) 50%, transparent 75%);
+  pointer-events: none;
+}
+
+.contactHeroContent {
+  max-width: 900px;
+}
+
+.sprintPillBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 100px;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--accent-purple);
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.sprintPillSparkle {
+  color: #fbbf24;
+}
+
+[data-theme="light"] .sprintPillBadge {
+  background: rgba(124, 58, 237, 0.08);
+  border-color: rgba(124, 58, 237, 0.25);
+  color: #6d28d9;
+}
+
+.contactHeroTitle {
+  font-family: var(--font-heading);
+  font-size: 3.8rem;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin: 0.5rem 0 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .contactHeroTitle {
+    font-size: 2.5rem;
+  }
+}
+
+.contactHeroSubtitle {
+  font-size: 1.18rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 820px;
+}
+
+/* ============================================================================
+   2. MAIN SECTION: TOUCHPOINTS & APPLICATION FORM GRID
+   ============================================================================ */
+.contactMainSection {
+  position: relative;
+  padding: 20px 0 90px;
+}
+
+.contactGridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .contactGridContainer {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* Left Column: Direct Touchpoints */
+.contactInfoCol {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 100px;
+}
+
+.touchpointsHeader {
+  margin-bottom: 1.8rem;
+}
+
+.touchpointsTitle {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0.4rem 0 0.6rem;
+}
+
+.touchpointsDesc {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.touchpointCardsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.touchpointCard {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.4rem 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .touchpointCard {
+  background: #ffffff;
+  border-color: rgba(12, 24, 68, 0.1);
+  box-shadow: 0 4px 15px rgba(12, 24, 68, 0.04);
+}
+
+.touchpointCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-blue);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+}
+
+.touchpointCard.staticLocation:hover {
+  transform: none;
+  border-color: var(--border);
+  box-shadow: none;
+}
+
+.touchpointIconBox {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--accent-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.touchpointCard:hover .touchpointIconBox {
+  background: var(--brand-gradient-bright);
+  color: #ffffff;
+}
+
+.touchpointDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.touchpointLabel {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.touchpointValue {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.touchpointNote {
+  font-size: 0.82rem;
+  color: var(--accent-blue);
+  font-weight: 500;
+}
+
+/* SLA Commitment Card */
+.touchpointCard.slaCard .touchpointIconBox {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+}
+
+.touchpointCard.slaCard:hover .touchpointIconBox {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.touchpointCard.slaCard .touchpointNote {
+  color: #10b981;
+}
+
+/* Assurance Card */
+.sprintAssuranceCard {
+  margin-top: 1.6rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.5rem 1.6rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+}
+
+[data-theme="light"] .sprintAssuranceCard {
+  background: #f8fafc;
+  border-color: rgba(12, 24, 68, 0.1);
+}
+
+.assuranceIcon {
+  color: #10b981;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.assuranceContent h4 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.assuranceContent p {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ============================================================================
+   Right Column: 60-Day Strategic Sprint Form Styling
+   ============================================================================ */
+.contactFormWrapper {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 3.2rem 3rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .contactFormWrapper {
+  background: #ffffff;
+  border-color: rgba(12, 24, 68, 0.1);
+  box-shadow: 0 20px 50px rgba(12, 24, 68, 0.06);
+}
+
+@media (max-width: 640px) {
+  .contactFormWrapper {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.formHeader {
+  margin-bottom: 2.2rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.5rem;
+}
+
+.formHeaderBadge {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  background: rgba(59, 130, 246, 0.12);
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  margin-bottom: 0.6rem;
+}
+
+.formBoxTitle {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0 0 0.5rem;
+}
+
+.formBoxSubtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Sections inside Sprint Form */
+.sprintFormSection {
+  margin-bottom: 2.8rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sprintFormSection:last-of-type {
+  border-bottom: none;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0;
+}
+
+.sprintSectionHeader {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Form Fields */
+.formRowGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+@media (max-width: 640px) {
+  .formRowGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.formFieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-bottom: 1.4rem;
+}
+
+.fieldLabel {
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.fieldInput {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.95rem 1.2rem;
+  color: var(--text);
+  font-size: 0.94rem;
+  font-family: var(--font-body);
+  transition: all 0.25s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+[data-theme="light"] .fieldInput {
+  background: #f8fafc;
+  border-color: rgba(12, 24, 68, 0.15);
+  color: #0c1844;
+}
+
+.fieldInput:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 14px rgba(59, 130, 246, 0.25);
+  outline: none;
+}
+
+/* Category Pills Grid */
+.categoryPillsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.categoryPillLabel {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.65rem 1.15rem;
+  border-radius: 100px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+[data-theme="light"] .categoryPillLabel {
+  background: #f8fafc;
+  border-color: rgba(12, 24, 68, 0.12);
+}
+
+.categoryPillLabel:hover {
+  border-color: var(--accent-blue);
+  color: var(--text);
+}
+
+.categoryPillLabel.pillSelected {
+  background: var(--brand-gradient-bright);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+}
+
+.hiddenRadio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Custom Radio Options List */
+.radioOptionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.customRadioOption {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1.15rem;
+  border-radius: 12px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+[data-theme="light"] .customRadioOption {
+  background: #f8fafc;
+  border-color: rgba(12, 24, 68, 0.12);
+}
+
+.customRadioOption:hover {
+  border-color: var(--accent-blue);
+}
+
+.customRadioOption.radioSelected {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: var(--accent-blue);
+}
+
+[data-theme="light"] .customRadioOption.radioSelected {
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.customRadioDot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.customRadioOption.radioSelected .customRadioDot {
+  border-color: var(--accent-blue);
+  background: var(--accent-blue);
+  box-shadow: inset 0 0 0 3px var(--bg-elevated);
+}
+
+.radioText {
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* 1 to 10 Distinctiveness Scale */
+.distinctivenessHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.distinctScoreBadge {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #ffffff;
+  background: var(--brand-gradient-bright);
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  flex-shrink: 0;
+}
+
+.scaleButtonsRow {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 0.45rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .scaleButtonsRow {
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 0.6rem;
+  }
+}
+
+.scaleNumBtn {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-theme="light"] .scaleNumBtn {
+  background: #f8fafc;
+  border-color: rgba(12, 24, 68, 0.15);
+}
+
+.scaleNumBtn:hover {
+  border-color: var(--accent-blue);
+  transform: translateY(-2px);
+}
+
+.scaleNumBtn.scaleActive {
+  background: var(--brand-gradient-bright);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+}
+
+.scaleLabelsRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* File Upload Zone */
+.fileUploadZone {
+  border: 2px dashed var(--border);
+  border-radius: 16px;
+  padding: 2.2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: var(--bg-subtle);
+  text-align: center;
+}
+
+[data-theme="light"] .fileUploadZone {
+  background: #f8fafc;
+  border-color: rgba(12, 24, 68, 0.2);
+}
+
+.fileUploadZone:hover {
+  border-color: var(--accent-blue);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.uploadCloudIcon {
+  color: var(--accent-blue);
+}
+
+.uploadPromptText {
+  font-size: 0.92rem;
+  color: var(--text);
+}
+
+.uploadPromptText strong {
+  color: var(--accent-blue);
+}
+
+.uploadSpecsText {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.hiddenFileInput {
+  display: none;
+}
+
+.uploadedFileCard {
+  background: var(--bg-subtle);
+  border: 1px solid var(--accent-blue);
+  border-radius: 14px;
+  padding: 1rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.fileInfoLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.fileIcon {
+  color: var(--accent-blue);
+}
+
+.fileNameText {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--text);
+}
+
+.fileSizeText {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.removeFileBtn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: color 0.2s ease;
+}
+
+.removeFileBtn:hover {
+  color: #ef4444;
+}
+
+/* Checkbox Container */
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.checkboxInput {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  accent-color: var(--accent-blue);
+  cursor: pointer;
+}
+
+.checkboxLabelText {
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* Submit Button & Footer */
+.sprintSubmitBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.15rem 2rem;
+  border-radius: 14px;
+  background: var(--brand-gradient-bright);
+  border: none;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.sprintSubmitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(59, 130, 246, 0.5);
+}
+
+.formFooterNotice {
+  margin-top: 1.4rem;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.inlineHelpLink {
+  color: #25D366;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.inlineHelpLink:hover {
+  text-decoration: underline;
+}
+
+/* Success Box */
+.contactSuccessBox {
+  text-align: center;
+  padding: 2.5rem 1rem;
+}
+
+.successCheckCircle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.successTitle {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+}
+
+.successDesc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+.successDetailsSummary {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.4rem 1.8rem;
+  max-width: 520px;
+  margin: 1.5rem auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.94rem;
+}
+
+/* ============================================================================
+   4. GOOGLE MAP SECTION
+   ============================================================================ */
+.mapSection {
+  position: relative;
+  padding: 70px 0 110px;
+  background-color: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.mapHeader {
+  max-width: 780px;
+  margin-bottom: 3.2rem;
+}
+
+.mapTitle {
+  font-family: var(--font-heading);
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin: 0.5rem 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .mapTitle {
+    font-size: 2.3rem;
+  }
+}
+
+.mapSubtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.mapContainerCard {
+  position: relative;
+  width: 100%;
+  height: 460px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .mapContainerCard {
+  border-color: rgba(12, 24, 68, 0.1);
+  box-shadow: 0 20px 50px rgba(12, 24, 68, 0.08);
+}
+
+.googleMapIframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: contrast(1.05) saturate(1.1);
+}
+
+/* Floating Location Card Overlay */
+.mapOverlayInfoCard {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 1.5rem 1.8rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(14px);
+  max-width: 360px;
+  z-index: 10;
+}
+
+[data-theme="light"] .mapOverlayInfoCard {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(12, 24, 68, 0.12);
+  box-shadow: 0 15px 40px rgba(12, 24, 68, 0.15);
+}
+
+.mapOverlayHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.45rem;
+}
+
+.mapActiveDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+}
+
+.mapOverlayHeader h4 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  margin: 0;
+}
+
+.mapAddressText {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin-bottom: 0.65rem;
+}
+
+.mapWorkingHours {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.mapOpenLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  text-decoration: none;
+  transition: transform 0.25s ease;
+}
+
+.mapOpenLink:hover {
+  transform: translateX(3px);
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .mapOverlayInfoCard {
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    max-width: calc(100% - 24px);
+    padding: 1.2rem;
+  }
+}

@@ -1,0 +1,630 @@
+/* ============================================================================
+   Packages Section - Tab-Like Growth Systems Layout
+   ============================================================================ */
+
+.packagesSection {
+  position: relative;
+  padding: 90px 0 110px;
+  background-color: var(--bg);
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+}
+
+/* Ambient Radial Glow */
+.packagesSection::before {
+  content: '';
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, rgba(59, 130, 246, 0.04) 50%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.packagesContainer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.packagesHeaderRow {
+  margin-bottom: 2.8rem;
+}
+
+.packagesHeaderLeft {
+  max-width: 720px;
+}
+
+.packagesMainHeading {
+  font-family: var(--font-heading);
+  font-size: 3.6rem;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin: 0.4rem 0 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .packagesMainHeading {
+    font-size: 2.6rem;
+  }
+}
+
+.packagesHeaderDesc {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ============================================================================
+   TAB-LIKE STRUCTURE
+   ============================================================================ */
+.spotlightWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+/* Top Horizontal Tabs Track */
+.spotlightTabsTrack {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+@media (max-width: 1024px) {
+  .spotlightTabsTrack {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .spotlightTabsTrack {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+/* Tab Tile */
+.spotlightTabTile {
+  position: relative;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .spotlightTabTile {
+  background: #ffffff;
+  border-color: rgba(12, 24, 68, 0.1);
+  box-shadow: 0 4px 15px rgba(12, 24, 68, 0.04);
+}
+
+.spotlightTabTile:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-blue);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+}
+
+/* Active Tab Tile State */
+.spotlightTabTile.tileActive {
+  background: var(--bg-subtle);
+  border-color: var(--accent-blue);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.18);
+}
+
+[data-theme="light"] .spotlightTabTile.tileActive {
+  background: #f4f7ff;
+  border-color: var(--accent-blue);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.12);
+}
+
+.spotlightTabTile.tileActive.tileFeatured {
+  border-color: var(--accent-purple);
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.22);
+}
+
+.spotlightTabTile.tileActive.tileVip {
+  border-color: #f59e0b;
+  box-shadow: 0 8px 30px rgba(245, 158, 11, 0.2);
+}
+
+/* Active Underline Indicator */
+.tabActiveUnderline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--brand-gradient-bright);
+}
+
+.spotlightTabTile.tileVip .tabActiveUnderline {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24, #d97706);
+}
+
+.tileNumberTag {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  line-height: 1;
+}
+
+.spotlightTabTile.tileActive .tileNumberTag {
+  color: var(--accent-blue);
+}
+
+.spotlightTabTile.tileActive.tileFeatured .tileNumberTag {
+  color: var(--accent-purple);
+}
+
+.spotlightTabTile.tileActive.tileVip .tileNumberTag {
+  color: #f59e0b;
+}
+
+.tileInfo {
+  flex-grow: 1;
+}
+
+.tileName {
+  font-family: var(--font-heading);
+  font-size: 0.96rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+  line-height: 1.2;
+}
+
+.tileVolume {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.tileBadge {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.22rem 0.55rem;
+  border-radius: 12px;
+  background: var(--brand-gradient-bright);
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.tileBadge.vip {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+/* ============================================================================
+   ACTIVE STAGE CARD
+   ============================================================================ */
+.spotlightStageCard {
+  position: relative;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 3rem 2.8rem 3.2rem;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="light"] .spotlightStageCard {
+  background: #ffffff;
+  border-color: rgba(12, 24, 68, 0.1);
+  box-shadow: 0 20px 50px rgba(12, 24, 68, 0.08);
+}
+
+.spotlightStageCard.stageFeatured {
+  border: 1.5px solid rgba(139, 92, 246, 0.45);
+  box-shadow: 0 25px 60px rgba(139, 92, 246, 0.15);
+}
+
+.spotlightStageCard.stageVip {
+  border: 1.5px solid rgba(245, 158, 11, 0.4);
+  box-shadow: 0 25px 60px rgba(245, 158, 11, 0.12);
+}
+
+/* Watermark Number */
+.stageWatermark {
+  position: absolute;
+  right: 1.5rem;
+  bottom: -1rem;
+  font-family: var(--font-heading);
+  font-size: 18rem;
+  font-weight: 900;
+  color: var(--text);
+  opacity: 0.035;
+  line-height: 0.8;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* Two-Column Grid */
+.stageGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 1.85fr;
+  gap: 3.5rem;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 960px) {
+  .stageGrid {
+    grid-template-columns: 1fr;
+    gap: 2.8rem;
+  }
+}
+
+/* Left Column: Overview */
+.stageOverview {
+  display: flex;
+  flex-direction: column;
+}
+
+.stageBadgeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.stageNumberPill {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--text-muted);
+}
+
+.stageTierBadge {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.8rem;
+  border-radius: 20px;
+  background: var(--bg-subtle);
+  color: var(--accent-blue);
+  border: 1px solid var(--border);
+}
+
+[data-theme="light"] .stageTierBadge {
+  background: #f0f4fd;
+  color: #2563eb;
+  border-color: rgba(12, 24, 68, 0.08);
+}
+
+.spotlightStageCard.stageFeatured .stageTierBadge {
+  background: var(--brand-gradient-bright);
+  color: #ffffff;
+  border: none;
+}
+
+.spotlightStageCard.stageVip .stageTierBadge {
+  background: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.stagePackageName {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.15;
+  margin-bottom: 0.4rem;
+}
+
+.stageTagline {
+  font-size: 1.35rem;
+  color: var(--accent-blue);
+  margin-bottom: 0.85rem;
+}
+
+.spotlightStageCard.stageFeatured .stageTagline {
+  background: var(--brand-gradient-bright);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.spotlightStageCard.stageVip .stageTagline {
+  color: #d97706;
+}
+
+.stageTarget {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 1.6rem;
+}
+
+/* Metric Highlight Box */
+.stageMetricHighlight {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.1rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+[data-theme="light"] .stageMetricHighlight {
+  background: #f8fafc;
+  border-color: rgba(12, 24, 68, 0.08);
+}
+
+.metricNumber {
+  font-family: var(--font-heading);
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: var(--accent-blue);
+  line-height: 1;
+}
+
+.spotlightStageCard.stageFeatured .metricNumber {
+  background: var(--brand-gradient-bright);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.spotlightStageCard.stageVip .metricNumber {
+  color: #d97706;
+}
+
+.metricLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.metricLabel strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.metricLabel span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Best For Box */
+.stageBestForBlock {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 2.2rem;
+}
+
+[data-theme="light"] .stageBestForBlock {
+  background: #f8fafc;
+  border-color: rgba(12, 24, 68, 0.08);
+}
+
+.stageBestForLabel {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.stageBestForText {
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.45;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* CTA Action Row */
+.stageActionRow {
+  margin-top: 0.4rem;
+}
+
+.stageMainCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2.2rem;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border-radius: 30px;
+  cursor: pointer !important;
+  background: var(--brand-gradient-bright);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 6px 25px rgba(59, 130, 246, 0.35);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.stageMainCta:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.45);
+}
+
+.stageMainCta.btnFeaturedGradient {
+  background: var(--brand-gradient-bright);
+  box-shadow: 0 6px 25px rgba(139, 92, 246, 0.45);
+}
+
+.stageMainCta.btnFeaturedGradient:hover {
+  box-shadow: 0 10px 35px rgba(236, 72, 153, 0.55);
+}
+
+.stageMainCta.btnVipGold {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+  box-shadow: 0 6px 25px rgba(245, 158, 11, 0.35);
+}
+
+.stageMainCta.btnVipGold:hover {
+  box-shadow: 0 10px 32px rgba(245, 158, 11, 0.5);
+}
+
+/* Right Column: Pillars */
+.stageDeliverablesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.stageDeliverablesTitle {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.stageCompoundingBadge {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-purple);
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+}
+
+.pillarsGrid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.pillarsGrid.twoColumns {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.pillarsGrid.threeColumns {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1200px) {
+  .pillarsGrid.threeColumns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .pillarsGrid.twoColumns,
+  .pillarsGrid.threeColumns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pillarCard {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.4rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-theme="light"] .pillarCard {
+  background: #f8fafc;
+  border-color: rgba(12, 24, 68, 0.08);
+}
+
+.pillarTitle {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.pillarList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.pillarItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.pillarCheck {
+  color: var(--accent-blue);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.spotlightStageCard.stageFeatured .pillarCheck {
+  color: var(--accent-purple);
+}
+
+.spotlightStageCard.stageVip .pillarCheck {
+  color: #f59e0b;
+}
+
+/* Bottom Assurance */
+.packagesBottomAssurance {
+  text-align: center;
+  margin-top: 3.5rem;
+  font-size: 0.96rem;
+  color: var(--text-secondary);
+}
+
+.agencyContactLink {
+  color: var(--accent-blue);
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 0.3rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.agencyContactLink:hover {
+  color: var(--accent-magenta);
+  transform: translateX(3px);
+  text-decoration: underline;
+}

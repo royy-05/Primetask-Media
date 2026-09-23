@@ -1,0 +1,298 @@
+/* ============================================================================
+   Services Section - Wide Neural Network Layout (Floating Constellation)
+   ============================================================================ */
+
+.neuralSection {
+  position: relative;
+  padding: 85px 0 120px;
+  background-color: var(--bg);
+  overflow: hidden;
+}
+
+[data-theme="light"] .neuralSection {
+  background-color: #f6f8fc;
+}
+
+/* Section Header */
+.servicesHeader {
+  text-align: left;
+  margin-bottom: 3.2rem;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.servicesMainTitle {
+  font-size: 3.6rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: var(--text);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0.5rem 0 0;
+}
+
+@media (max-width: 768px) {
+  .servicesMainTitle {
+    font-size: 2.7rem;
+  }
+}
+
+/* ============================================================================
+   Wide Neural Network Canvas & SVG Strings Layer
+   ============================================================================ */
+.neuralNetworkWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 1.5rem auto 0;
+  padding: 10px 0 60px;
+}
+
+/* SVG Synapse Overlay */
+.neuralSvgOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+}
+
+/* Synapse Lines / Strings (Brand Colors) */
+.neuralSynapseLine {
+  fill: none;
+  stroke: rgba(59, 130, 246, 0.35);
+  stroke-width: 1.8px;
+  stroke-dasharray: 7 6;
+  transition: stroke 0.35s ease, stroke-width 0.35s ease, filter 0.35s ease;
+}
+
+[data-theme="light"] .neuralSynapseLine {
+  stroke: rgba(37, 99, 235, 0.42);
+}
+
+.neuralSynapseLine.synapseLineActive {
+  stroke: var(--accent-blue);
+  stroke-width: 3px;
+  stroke-dasharray: none;
+  filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.95));
+}
+
+[data-theme="light"] .neuralSynapseLine.synapseLineActive {
+  stroke: var(--accent-blue);
+  filter: drop-shadow(0 0 12px rgba(37, 99, 235, 0.85));
+}
+
+/* Animated Pulse Particles */
+.neuralPulseDot {
+  fill: var(--accent-blue);
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.9));
+  transition: r 0.25s ease;
+}
+
+.neuralPulseDot.pulseDotActive {
+  fill: #ffffff;
+  filter: drop-shadow(0 0 12px var(--accent-blue));
+}
+
+@keyframes pulseHalo {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(2.3);
+    opacity: 0;
+  }
+}
+
+/* ============================================================================
+   Wide Staggered Cards Grid — Spaced Out Generously
+   ============================================================================ */
+.neuralCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(240px, 310px));
+  justify-content: space-between;
+  column-gap: 4.5rem;
+  row-gap: 4.2rem;
+  position: relative;
+  z-index: 3;
+  align-items: start;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .neuralCardsGrid {
+    grid-template-columns: repeat(2, minmax(220px, 280px));
+    justify-content: center;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .neuralCardsGrid {
+    grid-template-columns: minmax(240px, 300px);
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+
+/* ============================================================================
+   Floating Cards Styling — Generous Spacing, Clean Typography & Floating Hover
+   ============================================================================ */
+.neuralCard {
+  position: relative;
+  width: 100%;
+  height: 255px;
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #080d1e;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.6rem 1.5rem;
+  animation: floatAmbient 5.5s ease-in-out infinite;
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              border-color 0.35s ease, 
+              box-shadow 0.45s ease;
+  will-change: transform;
+}
+
+[data-theme="light"] .neuralCard {
+  background: #0f172a;
+  border-color: rgba(12, 24, 68, 0.12);
+  box-shadow: 0 14px 35px rgba(12, 24, 68, 0.12);
+}
+
+/* Gentle ambient float drifting in space */
+@keyframes floatAmbient {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+/* Hover: Floating high elevation & glowing aura */
+.neuralCard:hover,
+.neuralCard.neuralCardHovered {
+  animation-play-state: paused;
+  border-color: var(--accent-blue);
+  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.55), 0 0 35px rgba(59, 130, 246, 0.45);
+}
+
+[data-theme="light"] .neuralCard:hover,
+[data-theme="light"] .neuralCard.neuralCardHovered {
+  box-shadow: 0 28px 60px rgba(12, 24, 68, 0.25), 0 0 35px rgba(59, 130, 246, 0.4);
+}
+
+/* Card Background Image with Depth & Hover Zoom */
+.neuralCardBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+  z-index: 1;
+}
+
+.neuralCard:hover .neuralCardBg {
+  transform: scale(1.08);
+}
+
+/* Card Dark Overlay for Pure Contrast */
+.neuralCardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg, 
+    rgba(0, 0, 0, 0.18) 0%, 
+    rgba(7, 11, 25, 0.52) 42%, 
+    rgba(7, 11, 25, 0.92) 100%
+  );
+  z-index: 2;
+  transition: background 0.35s ease;
+}
+
+.neuralCard:hover .neuralCardOverlay {
+  background: linear-gradient(
+    180deg, 
+    rgba(0, 0, 0, 0.1) 0%, 
+    rgba(7, 11, 25, 0.42) 42%, 
+    rgba(7, 11, 25, 0.86) 100%
+  );
+}
+
+/* Top: Glowing Brand Node Dot */
+.neuralCardTop {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.neuralDotWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+}
+
+.neuralCardDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  box-shadow: 0 0 14px var(--accent-blue), 0 0 26px rgba(59, 130, 246, 0.7);
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.neuralCard:hover .neuralCardDot {
+  transform: scale(1.3);
+  box-shadow: 0 0 18px var(--accent-blue), 0 0 32px rgba(59, 130, 246, 0.9);
+}
+
+.neuralDotRing {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(59, 130, 246, 0.55);
+  animation: pulseHalo 2.5s ease-out infinite;
+}
+
+/* Bottom: Only Service Name (Exact Reference Look) */
+.neuralCardBottom {
+  position: relative;
+  z-index: 3;
+}
+
+.neuralCardName {
+  font-family: var(--font-heading);
+  font-size: 1.32rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  transition: color 0.3s ease;
+}
