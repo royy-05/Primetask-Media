@@ -1,0 +1,313 @@
+/* ============================================================================
+   Footer Section - Clean Corporate Agency Layout (Reference Layout)
+   ============================================================================ */
+
+.footer {
+  position: relative;
+  padding: 85px 0 35px;
+  background-color: var(--bg);
+  border-top: 1px solid var(--border);
+  color: var(--text);
+  overflow: hidden;
+}
+
+[data-theme="light"] .footer {
+  background-color: #ffffff;
+  border-top: 1px solid rgba(12, 24, 68, 0.08);
+}
+
+/* 4-Column Grid */
+.footerMainGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 1.15fr 0.75fr 1.1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .footerMainGrid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .footerContactCol {
+    grid-column: span 3;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footerMainGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .footerContactCol {
+    grid-column: span 1;
+    margin-top: 0;
+  }
+}
+
+/* Column 1: Brand Info */
+.footerBrandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.footerLogoWrapper {
+  cursor: pointer;
+  display: inline-block;
+  width: fit-content;
+}
+
+.footerBrandDesc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 360px;
+}
+
+.footerBrandDesc strong {
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+/* Social Media Pill Buttons */
+.footerSocialsRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.socialPillBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-decoration: none;
+}
+
+[data-theme="light"] .socialPillBtn {
+  background: #f8fafc;
+  border-color: rgba(12, 24, 68, 0.1);
+  color: #334155;
+}
+
+.socialPillBtn:hover {
+  transform: translateY(-3px);
+  background: var(--accent-blue);
+  color: #ffffff;
+  border-color: var(--accent-blue);
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.35);
+}
+
+/* Column Headings with Accent Bullet */
+.footerColTitle {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.footerBulletDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Column 2: Capabilities with Chevrons */
+.footerCapabilitiesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.capabilityItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.chevronPrefix {
+  color: var(--accent-blue);
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.capabilityItem a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.capabilityItem a:hover {
+  color: var(--accent-blue);
+  transform: translateX(3px);
+}
+
+/* Column 3: Navigation */
+.footerNavList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.footerNavList a {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.25s ease, transform 0.25s ease;
+  display: inline-block;
+}
+
+.footerNavList a:hover {
+  color: var(--accent-blue);
+  transform: translateX(3px);
+}
+
+/* Column 4: Direct Contacts */
+.footerContactsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.contactCardLink {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.contactCardLink:not(.locationStatic):hover {
+  color: var(--text);
+  transform: translateX(3px);
+}
+
+.contactCardLink:not(.locationStatic):hover .contactIconPill {
+  background: var(--accent-blue);
+  color: #ffffff;
+  border-color: var(--accent-blue);
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+}
+
+.contactIconPill {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  color: var(--accent-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+[data-theme="light"] .contactIconPill {
+  background: #f8fafc;
+  border-color: rgba(12, 24, 68, 0.08);
+}
+
+.contactText {
+  font-size: 0.88rem;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+/* Divider Line */
+.footerDivider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin: 3.5rem 0 2rem;
+}
+
+[data-theme="light"] .footerDivider {
+  background: rgba(12, 24, 68, 0.08);
+}
+
+/* Bottom Bar */
+.footerBottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footerCopyright {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mainCopyright {
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.operatingTradeName {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.footerPolicyLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+}
+
+.policyLink {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.policyLink:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footerBottomBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+}

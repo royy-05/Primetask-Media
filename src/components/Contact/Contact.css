@@ -1,0 +1,292 @@
+.contactSection {
+  position: relative;
+  padding: 65px 0 80px;
+  background-color: var(--bg);
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+}
+
+.contactWideContainer {
+  max-width: 1140px;
+  width: 92%;
+  margin: 0 auto;
+}
+
+/* Centered Section Header */
+.contactSectionHeader {
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto 3.2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contactTitle {
+  font-size: 3.6rem;
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin: 0.6rem 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .contactTitle {
+    font-size: 2.6rem;
+  }
+}
+
+.contactSubtitle {
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 720px;
+}
+
+/* Quick Touchpoints Strip */
+.contactTopInfoStrip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.contactStripItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 100px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .contactStripItem {
+  background: #ffffff;
+  border-color: rgba(12, 24, 68, 0.1);
+  box-shadow: 0 4px 15px rgba(12, 24, 68, 0.04);
+}
+
+.contactStripItem:hover:not(.staticStrip) {
+  transform: translateY(-2px);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+}
+
+.contactStripIcon {
+  color: var(--accent-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Wide Container for Calendly - Shows ONLY the Calendly plugin without outer background/padding */
+.contactWideCard {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+[data-theme="light"] .contactWideCard {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 768px) {
+  .contactWideCard {
+    padding: 0 !important;
+  }
+}
+
+/* Tabs Header */
+.contactTabsHeader {
+  display: flex;
+  background: var(--bg-subtle);
+  padding: 0.35rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  margin-bottom: 0.35rem;
+  gap: 0.4rem;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contactTabBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.contactTabBtn:hover {
+  color: var(--text);
+}
+
+.contactTabBtn.tabActive {
+  background: var(--brand-gradient-bright);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.35);
+}
+
+/* Official Calendly Embed Frame Container (Zero padding, zero border, zero radius, snug spacing) */
+.calendlyTabContentWide {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.calendlyEmbedWrapper {
+  width: 100%;
+  min-height: 700px;
+  border-radius: 0 !important;
+  overflow: hidden;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-top: -10px;
+}
+
+[data-theme="light"] .calendlyEmbedWrapper {
+  background: transparent !important;
+  border: none !important;
+}
+
+.calendlyEmbedWrapper iframe {
+  width: 100% !important;
+  height: 700px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  margin-top: -18px;
+}
+
+/* Direct Message Form Card (Only styled when Message tab is active) */
+.messageTabContentWide {
+  max-width: 780px;
+  margin: 1.4rem auto 0;
+  padding: 2.8rem 2.4rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .messageTabContentWide {
+  background: #ffffff;
+  border-color: rgba(12, 24, 68, 0.1);
+  box-shadow: 0 15px 40px rgba(12, 24, 68, 0.05);
+}
+
+.formRowGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+@media (max-width: 640px) {
+  .formRowGrid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-bottom: 1.5rem;
+}
+
+.formLabel {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.formInput,
+.formSelect,
+.formTextarea {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.95rem 1.1rem;
+  color: var(--text);
+  font-size: 0.94rem;
+  font-family: var(--font-body);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+[data-theme="light"] .formInput,
+[data-theme="light"] .formSelect,
+[data-theme="light"] .formTextarea {
+  background: #f8fafc;
+  border-color: rgba(12, 24, 68, 0.15);
+  color: #0c1844;
+}
+
+.formInput:focus,
+.formSelect:focus,
+.formTextarea:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.25);
+  outline: none;
+}
+
+.formTextarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.formSuccessState {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.successIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--brand-gradient-bright);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+}

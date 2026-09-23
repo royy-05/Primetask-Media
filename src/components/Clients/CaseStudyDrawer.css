@@ -1,0 +1,561 @@
+/* Case Study Slide-Over Drawer */
+
+.csDrawerPortal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Backdrop Blur Overlay */
+.csDrawerBackdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 7, 18, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+[data-theme="light"] .csDrawerBackdrop {
+  background: rgba(12, 24, 68, 0.45);
+}
+
+/* Slide-Over Drawer Container */
+.csDrawerContainer {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  height: 100%;
+  background: var(--bg-elevated);
+  border-left: 1px solid var(--border);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  z-index: 10000;
+  overflow: hidden;
+}
+
+/* Top Navigation Bar */
+.csDrawerTopBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 2rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated);
+  flex-shrink: 0;
+  gap: 1rem;
+}
+
+.csDrawerHeaderMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.csDrawerBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+}
+
+.csDrawerSubBadge {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.csDrawerCloseBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.csDrawerCloseBtn:hover {
+  background: var(--border);
+  color: var(--accent-magenta);
+  transform: rotate(90deg);
+}
+
+/* Scrollable Body */
+.csDrawerBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2.2rem 2.2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.csDrawerBody::-webkit-scrollbar {
+  width: 6px;
+}
+
+.csDrawerBody::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+.csDrawerBody::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.csDrawerBody::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-purple);
+}
+
+/* Hero Section */
+.csDrawerHero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.csDrawerLogoWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.csDrawerLogo {
+  max-height: 32px;
+  max-width: 90px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.csDrawerClientNameTag {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.csDrawerTitle {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0;
+}
+
+.csDrawerSubtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Section Small Label */
+.csSectionSmallLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  margin-bottom: 0.85rem;
+}
+
+/* Metrics Grid */
+.csMetricsSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.csMetricsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.csMetricCard {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.4rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.csMetricCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-purple);
+}
+
+.csMetricValue {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  background: var(--brand-gradient-bright);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  margin-bottom: 0.35rem;
+}
+
+.csMetricLabel {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.csMetricNote {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Quote Callout */
+.csQuoteBlock {
+  position: relative;
+  background: var(--bg-subtle);
+  border-left: 3px solid var(--accent-blue);
+  border-radius: 0 14px 14px 0;
+  padding: 1.2rem 1.6rem;
+  margin: 0.2rem 0;
+}
+
+.csQuoteMark {
+  font-family: var(--font-serif-italic);
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--accent-purple);
+  opacity: 0.6;
+  display: block;
+  margin-bottom: -0.6rem;
+}
+
+.csQuoteText {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Tools & Execution Platforms */
+.csToolsSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.csToolsPillContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.csToolPill {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.csToolPill:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  transform: translateY(-1px);
+}
+
+/* Narrative Cards (Starting From Zero & The Challenge) */
+.csNarrativeCard {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.csZeroCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-blue);
+}
+
+.csChallengeCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-magenta);
+}
+
+.csNarrativeHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.csNarrativeTag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.csNarrativeTitle {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.csNarrativeDesc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* 4-Phase Strategy Framework */
+.csStrategySection {
+  display: flex;
+  flex-direction: column;
+}
+
+.csStrategyHeader {
+  margin-bottom: 1.2rem;
+}
+
+.csStrategyMainTitle {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.csPhaseList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.csPhaseCard {
+  display: flex;
+  gap: 1.2rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.4rem;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.csPhaseCard:hover {
+  transform: translateX(4px);
+  border-color: var(--accent-blue);
+}
+
+.csPhaseIndicator {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.csPhaseNum {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--accent-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.csPhaseContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.csPhaseBadge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-purple);
+}
+
+.csPhaseTitle {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.csPhaseDesc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0.2rem 0 0;
+}
+
+/* The Sensory Campaign Highlight */
+.csSensoryCard {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.08) 50%, rgba(236, 72, 153, 0.08) 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.8rem;
+  position: relative;
+}
+
+.csSensoryBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-magenta);
+  margin-bottom: 0.6rem;
+}
+
+.csSensoryTitle {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 0.6rem;
+}
+
+.csSensoryDesc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Sticky Footer CTA */
+.csDrawerFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.3rem 2rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg-elevated);
+  flex-shrink: 0;
+  gap: 1rem;
+}
+
+.csFooterInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.csFooterPrompt {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.csFooterSub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.csFooterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .csDrawerContainer {
+    max-width: 100%;
+  }
+
+  .csDrawerBody {
+    padding: 1.5rem 1.2rem 3rem;
+    gap: 1.6rem;
+  }
+
+  .csDrawerTitle {
+    font-size: 1.8rem;
+  }
+
+  .csMetricsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .csDrawerFooter {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem 1.2rem;
+  }
+
+  .csFooterBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

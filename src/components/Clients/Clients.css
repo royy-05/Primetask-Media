@@ -1,0 +1,375 @@
+/* Clients Section - Hover-Split Showcase */
+
+.clientsSection {
+  position: relative;
+  padding: 90px 0 110px;
+  background-color: var(--bg);
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+}
+
+.clientsHeader {
+  max-width: 780px;
+  text-align: left;
+  margin-bottom: 3.5rem;
+}
+
+.clientsTitle {
+  font-family: var(--font-heading);
+  font-size: 3.8rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .clientsTitle {
+    font-size: 2.8rem;
+  }
+}
+
+.clientsDesc {
+  font-size: 1.12rem;
+  color: var(--text-secondary);
+  margin-top: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Two-Column Split Layout */
+.clientsSplitLayout {
+  display: grid;
+  grid-template-columns: 1.35fr 0.95fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Left Column: 3-Column Logo Wall */
+.logoWallColumn {
+  width: 100%;
+}
+
+.logoWallGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+/* Logo Wall Tile */
+.logoWallTile {
+  position: relative;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.4rem 1.2rem;
+  min-height: 115px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 1;
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+[data-theme="light"] .logoWallTile {
+  background: #ffffff;
+  border-color: rgba(12, 24, 68, 0.09);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+/* Glow on hover / active */
+.logoWallTile:hover,
+.logoWallTile.activeTile {
+  transform: translateY(-3px);
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.25), 0 0 15px rgba(236, 72, 153, 0.15);
+}
+
+.logoWallTile.activeTile::before,
+.logoWallTile:hover::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 13.5px;
+  padding: 1.5px;
+  background: var(--brand-gradient-bright);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.logoTileMedia {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoTileImg {
+  max-height: 68px;
+  max-width: 155px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logoWallTile:hover .logoTileImg,
+.logoWallTile.activeTile .logoTileImg {
+  transform: scale(1.05);
+}
+
+/* Fallback: Outfit semibold, no broken-image icon */
+.logoTileFallback {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text);
+  text-align: center;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  padding: 0.5rem 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-word;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.logoWallTile:hover .logoTileFallback,
+.logoWallTile.activeTile .logoTileFallback {
+  color: var(--accent-blue);
+}
+
+/* Mobile Inline Result (hidden on desktop) */
+.mobileInlineResult {
+  display: none;
+  width: 100%;
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.mobileCategoryTag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  display: block;
+}
+
+.mobileResultDesc {
+  font-size: 0.88rem;
+  font-weight: 700;
+  background: var(--brand-gradient-bright);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 0.3rem;
+  line-height: 1.35;
+}
+
+/* Right Column: Sticky Proof Panel */
+.proofPanelColumn {
+  width: 100%;
+}
+
+.proofPanelSticky {
+  position: sticky;
+  top: 110px;
+  align-self: start;
+}
+
+.proofCard {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.8rem 2.4rem;
+  box-shadow: var(--glow-shadow);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.proofCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--brand-gradient-bright);
+}
+
+.proofHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.proofCategory {
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.proofVerifiedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+}
+
+.proofClientName {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.4rem;
+}
+
+.proofDivider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 1.6rem;
+}
+
+.proofResultBlock {
+  margin-bottom: 2.2rem;
+}
+
+.proofResultLabel {
+  font-size: 0.74rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.proofResultMetric {
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  background: var(--brand-gradient-bright);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.proofActionBtn {
+  width: 100%;
+  justify-content: center;
+  padding: 0.75rem 1.6rem;
+  font-size: 0.95rem;
+}
+
+.proofCaseStudyBtn {
+  background: var(--brand-gradient-bright);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.35);
+  font-weight: 700;
+}
+
+.proofCaseStudyBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(236, 72, 153, 0.4);
+}
+
+
+.mobileCaseStudyTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobileCaseStudyTrigger:hover {
+  background: var(--brand-gradient-bright);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+/* Tablet & Mobile Breakpoints */
+@media (max-width: 1024px) {
+  .clientsSplitLayout {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+  }
+  
+  .proofClientName {
+    font-size: 1.9rem;
+  }
+
+  .proofResultMetric {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .clientsSplitLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .proofPanelColumn {
+    display: none;
+  }
+
+  .logoWallGrid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .logoWallTile {
+    filter: grayscale(0%);
+    opacity: 1;
+    min-height: auto;
+    padding: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .logoTileMedia {
+    justify-content: flex-start;
+  }
+
+  .mobileInlineResult {
+    display: block;
+    text-align: left;
+    margin-top: 0.8rem;
+  }
+}

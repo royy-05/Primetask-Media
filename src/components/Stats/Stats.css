@@ -1,0 +1,113 @@
+.statsSection {
+  position: relative;
+  padding: 60px 0;
+  background-color: var(--bg);
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.statCard {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.statCard:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.statCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--brand-gradient-bright);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.statCard:hover::before {
+  opacity: 1;
+}
+
+.statNumber {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Stats numbers using accent colors */
+.statCard:nth-child(1) .statNumber {
+  color: var(--accent-blue);
+}
+
+.statCard:nth-child(2) .statNumber {
+  color: var(--accent-purple);
+}
+
+.statCard:nth-child(3) .statNumber {
+  color: var(--accent-magenta);
+}
+
+.statCard:nth-child(4) .statNumber {
+  color: var(--accent-blue);
+}
+
+@media (max-width: 1200px) {
+  .statNumber {
+    font-size: 3rem;
+  }
+}
+
+.statNumberPlus {
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+.statLabel {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  max-width: 200px;
+  line-height: 1.4;
+}
