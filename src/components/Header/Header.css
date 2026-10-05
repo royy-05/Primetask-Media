@@ -87,24 +87,10 @@
   gap: 1.2rem;
 }
 
-.themeToggleBtn {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  color: var(--text);
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 0;
-}
-
-.themeToggleBtn:hover {
-  border-color: var(--accent-blue);
-  color: var(--accent-blue);
+@media (max-width: 480px) {
+  .headerCTA {
+    display: none;
+  }
 }
 
 .mobileToggle {

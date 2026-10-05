@@ -1,25 +1,32 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, ChevronLeft, ChevronRight, Play, X, Film, Sparkles } from 'lucide-react';
 import { workCategories, works } from '../../data/content';
 import './OurWorks.css';
 
-const defaultWorkImages = {
-  "Masala Code, Indore": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop",
-  "Chaa Kahon, Uttarpara": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?q=80&w=800&auto=format&fit=crop",
-  "Wah Boutique, Kolkata": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop",
-  "Mishael": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop",
-  "R3 Interiors, Kolkata": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop",
-  "YR Fitness": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop",
-  "Pool Cafe, Konnagar": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop",
-  "Cafe Coutume": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800&auto=format&fit=crop",
-  "Chowdhury Jewellers": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
-};
 
 export const OurWorks = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [isHovered, setIsHovered] = useState(false);
+  const [activeVideoModal, setActiveVideoModal] = useState(null);
   const carouselRef = useRef(null);
+
+  // Manage body scroll when modal is active
+  useEffect(() => {
+    if (activeVideoModal) {
+      document.body.style.overflow = 'hidden';
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') setActiveVideoModal(null);
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = '';
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [activeVideoModal]);
 
   const categories = workCategories;
 
@@ -161,7 +168,7 @@ export const OurWorks = () => {
           >
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project, index) => {
-                const cardImage = project.image || defaultWorkImages[project.title] || "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop";
+                const cardImage = project.image || null;
 
                 return (
                   <motion.div
@@ -171,9 +178,11 @@ export const OurWorks = () => {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.92, y: 20 }}
                     transition={{ duration: 0.4 }}
-                    className="workCardItem"
+                    className={`workCardItem ${project.video ? 'workCardHasVideo' : project.isCreative ? 'workCardHasCreative' : ''}`}
                     onClick={() => {
-                      if (project.link) {
+                      if (project.video || project.isCreative) {
+                        setActiveVideoModal(project);
+                      } else if (project.link) {
                         window.open(project.link, '_blank', 'noopener,noreferrer');
                       } else {
                         const contactEl = document.getElementById('contact');
@@ -183,15 +192,54 @@ export const OurWorks = () => {
                       }
                     }}
                   >
-                    {/* Full Card Image with Hover Text Overlay */}
+                    {/* Full Card Media (Video or Image) with Hover Text Overlay */}
                     <div className="workImageContainer">
-                      <img src={cardImage} alt={project.title} className="workImage" />
+                      {project.video ? (
+                        <>
+                          <video
+                            src={project.video}
+                            poster={project.poster || undefined}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            preload="metadata"
+                            className="workVideo"
+                          />
+                          <div className="workVideoPill">
+                            <Play size={10} fill="currentColor" />
+                            <span>REEL</span>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <img src={cardImage} alt={project.title} className="workImage" />
+                          {project.isCreative && (
+                            <div className="workCreativePill">
+                              <Sparkles size={10} />
+                              <span>CREATIVE</span>
+                            </div>
+                          )}
+                        </>
+                      )}
                       
                       {/* Text Revealed On Hover Only */}
                       <div className="workHoverContent">
                         <div className="workCategoryRow">
                           <span className="workCategoryLabel">{project.category}</span>
-                          {project.link && <ExternalLink size={14} className="workLinkIcon" />}
+                          {project.video ? (
+                            <span className="workWatchReelPrompt">
+                              <span>Watch Reel</span>
+                              <Play size={11} fill="currentColor" />
+                            </span>
+                          ) : project.isCreative ? (
+                            <span className="workWatchCreativePrompt">
+                              <span>View Creative</span>
+                              <Sparkles size={11} />
+                            </span>
+                          ) : (
+                            project.link && <ExternalLink size={14} className="workLinkIcon" />
+                          )}
                         </div>
                         <h3 className="workCardTitle">{project.title}</h3>
                         {project.result && <p className="workCardResult">{project.result}</p>}
@@ -205,6 +253,88 @@ export const OurWorks = () => {
           </div>
         </div>
       </div>
+
+      {/* Video Reel & Creative Lightbox Modal */}
+      <AnimatePresence>
+        {activeVideoModal && (
+          <div 
+            className="workVideoModalPortal"
+            onClick={() => setActiveVideoModal(null)}
+          >
+            <motion.div 
+              className="workVideoModalBackdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+            
+            <motion.div 
+              className="workVideoModalContainer"
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.8, 0.25, 1] }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="workVideoModalHeader">
+                <div className="workVideoModalMeta">
+                  <span className="workVideoModalTag">
+                    {activeVideoModal.video ? <Film size={12} /> : <Sparkles size={12} />}
+                    <span>{activeVideoModal.category}</span>
+                  </span>
+                  <h3 className="workVideoModalTitle">{activeVideoModal.title}</h3>
+                </div>
+                <button 
+                  className="workVideoModalClose"
+                  onClick={() => setActiveVideoModal(null)}
+                  aria-label="Close Preview"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              <div className="workVideoPlayerWrapper">
+                {activeVideoModal.video ? (
+                  <video
+                    src={activeVideoModal.video}
+                    poster={activeVideoModal.poster}
+                    controls
+                    autoPlay
+                    playsInline
+                    className="workModalVideoElement"
+                  />
+                ) : (
+                  <img
+                    src={activeVideoModal.image}
+                    alt={activeVideoModal.title}
+                    className="workModalImgElement"
+                  />
+                )}
+              </div>
+
+              <div className="workVideoModalFooter">
+                <div className="workVideoModalInfo">
+                  <p className="workVideoModalResult">{activeVideoModal.result}</p>
+                  <p className="workVideoModalSummary">{activeVideoModal.summary}</p>
+                </div>
+                <div className="workVideoModalActions">
+                  {activeVideoModal.link && (
+                    <a
+                      href={activeVideoModal.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary workModalCta"
+                    >
+                      <span>Visit Post / Client</span>
+                      <ExternalLink size={14} />
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </motion.section>
   );
 };

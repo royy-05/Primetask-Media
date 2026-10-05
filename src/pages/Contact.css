@@ -93,17 +93,18 @@
   padding: 20px 0 90px;
 }
 
-.contactGridContainer {
+.contactTopRowGrid {
   display: grid;
-  grid-template-columns: 1fr 1.6fr;
-  gap: 3.5rem;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.8rem;
+  align-items: stretch;
+  margin-bottom: 4rem;
 }
 
 @media (max-width: 1024px) {
-  .contactGridContainer {
+  .contactTopRowGrid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
 }
 
@@ -111,8 +112,56 @@
 .contactInfoCol {
   display: flex;
   flex-direction: column;
-  position: sticky;
-  top: 100px;
+}
+
+/* Right Column: Google Map Embed Side-by-Side */
+.contactMapCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactMapCard.cleanMapOnly {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.1);
+  background: var(--bg-elevated);
+  display: flex;
+}
+
+[data-theme="light"] .contactMapCard.cleanMapOnly {
+  background: #ffffff;
+  border-color: rgba(12, 24, 68, 0.1);
+  box-shadow: 0 14px 35px rgba(12, 24, 68, 0.05);
+}
+
+.contactMapCard.cleanMapOnly:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 20px 45px rgba(59, 130, 246, 0.12);
+}
+
+.contactMapCard.cleanMapOnly .contactGoogleMapIframe {
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  border: 0;
+  display: block;
+  filter: contrast(1.04) saturate(1.1);
+}
+
+@media (max-width: 992px) {
+  .contactMapCard.cleanMapOnly {
+    min-height: 380px;
+    height: 380px;
+  }
+  .contactMapCard.cleanMapOnly .contactGoogleMapIframe {
+    min-height: 380px;
+    height: 380px;
+  }
 }
 
 .touchpointsHeader {
@@ -275,10 +324,13 @@
    Right Column: 60-Day Strategic Sprint Form Styling
    ============================================================================ */
 .contactFormWrapper {
+  max-width: 980px;
+  margin: 0 auto;
+  width: 100%;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: 28px;
-  padding: 3.2rem 3rem;
+  padding: 3.5rem 3.2rem;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
@@ -798,147 +850,4 @@
   font-size: 0.94rem;
 }
 
-/* ============================================================================
-   4. GOOGLE MAP SECTION
-   ============================================================================ */
-.mapSection {
-  position: relative;
-  padding: 70px 0 110px;
-  background-color: var(--bg);
-  border-top: 1px solid var(--border);
-}
 
-.mapHeader {
-  max-width: 780px;
-  margin-bottom: 3.2rem;
-}
-
-.mapTitle {
-  font-family: var(--font-heading);
-  font-size: 3.2rem;
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
-  color: var(--text);
-  margin: 0.5rem 0 1rem;
-}
-
-@media (max-width: 768px) {
-  .mapTitle {
-    font-size: 2.3rem;
-  }
-}
-
-.mapSubtitle {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.mapContainerCard {
-  position: relative;
-  width: 100%;
-  height: 460px;
-  border-radius: 28px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-}
-
-[data-theme="light"] .mapContainerCard {
-  border-color: rgba(12, 24, 68, 0.1);
-  box-shadow: 0 20px 50px rgba(12, 24, 68, 0.08);
-}
-
-.googleMapIframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  filter: contrast(1.05) saturate(1.1);
-}
-
-/* Floating Location Card Overlay */
-.mapOverlayInfoCard {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 1.5rem 1.8rem;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(14px);
-  max-width: 360px;
-  z-index: 10;
-}
-
-[data-theme="light"] .mapOverlayInfoCard {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(12, 24, 68, 0.12);
-  box-shadow: 0 15px 40px rgba(12, 24, 68, 0.15);
-}
-
-.mapOverlayHeader {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  margin-bottom: 0.45rem;
-}
-
-.mapActiveDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #10b981;
-  box-shadow: 0 0 10px #10b981;
-}
-
-.mapOverlayHeader h4 {
-  font-family: var(--font-heading);
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  color: var(--text);
-  margin: 0;
-}
-
-.mapAddressText {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  line-height: 1.45;
-  margin-bottom: 0.65rem;
-}
-
-.mapWorkingHours {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-.mapOpenLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: var(--font-heading);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--accent-blue);
-  text-decoration: none;
-  transition: transform 0.25s ease;
-}
-
-.mapOpenLink:hover {
-  transform: translateX(3px);
-  text-decoration: underline;
-}
-
-@media (max-width: 600px) {
-  .mapOverlayInfoCard {
-    bottom: 12px;
-    left: 12px;
-    right: 12px;
-    max-width: calc(100% - 24px);
-    padding: 1.2rem;
-  }
-}

@@ -25,7 +25,7 @@ const detailedServices = [
     titleItalic: 'Campaigns.',
     pitch: 'For brands ready to scale visibility, we connect everything into one system.',
     description: 'Digital channels and physical touchpoints working together so demand does not depend on any single platform. We create holistic customer journeys that guide an audience from their initial online impression to in-store footfall and repeat visits.',
-    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop',
+    image: '/services/phygital-campaigns.jpg',
     icon: Layers,
     inclusions: [
       {
@@ -51,7 +51,7 @@ const detailedServices = [
     titleItalic: 'Visibility (Phygital).',
     pitch: 'We place your brand where decisions are emotionally made.',
     description: 'When people are scrolling on their phones, they are distracted. When they sit in a premium cinema hall or experience your brand in their physical neighborhood, they pay undivided attention. We place your brand directly inside the emotional decision-making moments.',
-    image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=800&auto=format&fit=crop',
+    image: '/services/cinema-visibility.jpg',
     icon: Film,
     inclusions: [
       {
@@ -77,7 +77,7 @@ const detailedServices = [
     titleItalic: 'Marketing.',
     pitch: 'We help you stay present after the first visit.',
     description: 'Acquiring a new customer costs 5X to 7X more than retaining an existing one. We build automated retention flows, VIP WhatsApp clubs, and tailored nudges that keep your regulars engaged and coming back week after week.',
-    image: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?q=80&w=800&auto=format&fit=crop',
+    image: '/services/whatsapp-retention.jpg',
     icon: MessageSquare,
     inclusions: [
       {
@@ -103,7 +103,7 @@ const detailedServices = [
     titleItalic: '(Digital Presence).',
     pitch: 'We design content that feels human, not promotional, built to stay in people’s minds, not just their feeds.',
     description: 'Most agencies churn out daily graphics that get scrolled past. We produce sensory, feeling-led, and review-led video content engineered to stimulate physical desire and cement authentic recall.',
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop',
+    image: '/services/social-content.jpg',
     icon: Camera,
     inclusions: [
       {
@@ -129,7 +129,7 @@ const detailedServices = [
     titleItalic: 'Strategy.',
     pitch: 'We start by identifying how and where customers discover, remember, and choose your brand.',
     description: 'Before executing any media or creative, we diagnose where your brand is leaking mindshare. We architect a definitive positioning system so you stand apart from aggressive competitors in crowded markets.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
+    image: '/services/brand-recall.jpg',
     icon: Compass,
     inclusions: [
       {

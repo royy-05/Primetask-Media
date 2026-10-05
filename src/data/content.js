@@ -206,8 +206,59 @@ export const clients = [
   {
     name: "Royal Enfield",
     category: "Automotive & Lifestyle",
-    result: "High-intent test-ride bookings & experiential community growth",
-    logo: "/clients/RE.png"
+    result: "+3,900% follower surge & 16.6K+ views with +100% visibility lift",
+    logo: "/clients/RE.png",
+    hasCaseStudy: true,
+    caseStudy: {
+      title: "Royal Enfield",
+      tag: "Automotive & Community · Monthly Instagram Performance Breakdown",
+      period: "2 September – 1 October 2026",
+      video: "/royal-enfield.mp4",
+      quote: "“The account demonstrated positive movement in views and follower numbers over the reporting period, establishing a strong baseline to convert viewers into engaged community members.”",
+      about: {
+        title: "Monthly Performance Overview",
+        text: "The Instagram account recorded substantial growth in visibility and followers during the reporting period, achieving 16,673 total views and gaining 40 followers according to dashboard analytics. Both metrics showed an increase compared with the previous baseline (+100% views lift and +3,900% follower surge vs 1 Sep), with account health confirming active good standing."
+      },
+      challenge: {
+        title: "The Baseline & Conversion Challenge",
+        text: "While content generated prominent mid-month view spikes, performance fluctuated across the reporting cycle. The primary objective shifted from top-of-funnel reach toward replicating high-performing creative hooks, establishing a disciplined scheduled publishing cadence, and engineering strong profile conversion funnels to turn casual viewers into long-term followers and test-ride prospects."
+      },
+      strategyTitle: "Creative Optimization & Community Scaling Framework",
+      strategyPhases: [
+        {
+          badge: "PHASE 01 · CONTENT DECONSTRUCTION",
+          title: "Replicate High-Performing Content",
+          desc: "Reviewed posts and reels published around the largest view spikes to decode winning hooks, creative styles, motorcycle culture themes, and high-retention video formats."
+        },
+        {
+          badge: "PHASE 02 · CONVERSION ARCHITECTURE",
+          title: "Follower Conversion & Profile CTAs",
+          desc: "Engineered stronger calls to action, clarified profile positioning, and established recurring automotive content series to turn casual viewers into loyal followers."
+        },
+        {
+          badge: "PHASE 03 · DISCIPLINED CADENCE",
+          title: "Scheduled Publishing & Format Testing",
+          desc: "Implemented regular scheduling tools to maintain an active posting rhythm, testing distinct creative approaches across reels, carousel breakdowns, and community rides."
+        },
+        {
+          badge: "PHASE 04 · TRENDING AUDIO & WEEKLY AUDITS",
+          title: "Strategic Audio & Continuous Optimization",
+          desc: "Strategically deployed trending audio that natively fits the brand identity, while tracking weekly views, reach, engagement, and profile visits to guide creative iteration."
+        }
+      ],
+      metrics: [
+        { value: "16,673", label: "Total Views", note: "+100% vs 1 Sep baseline" },
+        { value: "+3,900%", label: "Follower Surge", note: "40 new followers gained" },
+        { value: "Active", label: "Account Health", note: "100% good standing in dashboard" },
+        { value: "Mid-Month", label: "Visibility Spike", note: "High-retention content trend" }
+      ],
+      tools: ["Meta Ad Tools", "Instagram Insights", "Scheduled Content Suite", "Trending Audio Studio", "Monetisation Dashboard", "Monthly Recap Analytics"],
+      takeaway: {
+        title: "Building on Visibility for Long-Term Recall",
+        text: "The account has demonstrated positive movement in views and follower numbers over the reporting period. The next step is building on this visibility by identifying the content driving the strongest results and converting more viewers into engaged followers.",
+        note: "This report is based on the Instagram dashboard analytics provided. Reach, engagement rate, profile visits, paid versus organic performance and actual sales impact were not visible, so they have not been assumed. Prepared by Primetask Media (Creative • Strategy • Growth)."
+      }
+    }
   },
   {
     name: "Masala Code",
@@ -358,8 +409,63 @@ export const clients = [
   {
     name: "ViralBlues",
     category: "Media & Digital Entertainment",
-    result: "Multi-million organic views & viral digital reach",
-    logo: "/clients/viralblues.png"
+    result: "63.4K+ views & 53.2K+ unique audience with month-end viral surge",
+    logo: "/clients/viralblues.png",
+    hasCaseStudy: true,
+    caseStudy: {
+      title: "ViralBlues",
+      tag: "Media & Digital Entertainment · 30-Day Instagram Performance Breakdown",
+      period: "2 September – 1 October 2026 | 30 Days",
+      video: "/viral-blues.mp4",
+      creatives: [
+        "/viralblues-creative-1.jpeg",
+        "/viralblues-creative-2.jpeg"
+      ],
+      quote: "“The account generated 63,419 views and 53,237 unique viewers during the 30-day period, with a clear increase in views toward the end of the month.”",
+      about: {
+        title: "30-Day Performance Overview",
+        text: "The Instagram account generated 63,419 views and 592 interactions across 53,237 unique viewers over the 30-day reporting window. The insights demonstrate substantial organic distribution with an explosive initial peak of approximately 25.8K views, followed by a strong resurgence toward 1 October reaching approximately 12.9K on the final plotted day."
+      },
+      challenge: {
+        title: "Smoothing Volatility & Boosting Engagement",
+        text: "While overall exposure reached over 53,000 unique viewers, content velocity varied significantly across September with a quieter mid-month period. Additionally, total interactions (592 interactions, 0.71% interaction-to-view ratio) highlighted an opportunity to convert broad passive reach into active community engagement, comments, shares, and downstream business inquiries."
+      },
+      strategyTitle: "Momentum Retention & Community Conversion Framework",
+      strategyPhases: [
+        {
+          badge: "PHASE 01 · SPIKE DECONSTRUCTION",
+          title: "Analyse High-Performing Content",
+          desc: "Identified the reels and posts that sparked the initial 25.8K surge and end-of-month 12.9K rebound, studying hooks, topics, creative direction, and viral audio cues."
+        },
+        {
+          badge: "PHASE 02 · ENGAGEMENT CATALYSTS",
+          title: "Relatable Storytelling & Interactive CTAs",
+          desc: "Introduced stronger calls to action, interactive stories, relatable storytelling, and content engineered specifically to encourage comments, shares, and saves."
+        },
+        {
+          badge: "PHASE 03 · SUSTAINABLE CADENCE",
+          title: "Consistent Multi-Format Calendar",
+          desc: "Established a sustainable posting calendar with an optimized mix of high-energy reels, engaging carousels, static posts, and day-to-day stories to prevent mid-month dips."
+        },
+        {
+          badge: "PHASE 04 · COMMERCIAL ATTRIBUTION",
+          title: "Follower Conversion & Business Impact",
+          desc: "Strengthened the profile value proposition to give viewers a reason to follow, while tracking inquiries, website clicks, WhatsApp conversations, and commercial partner inquiries."
+        }
+      ],
+      metrics: [
+        { value: "63,419", label: "Total Views", note: "30-day reporting period" },
+        { value: "53,237", label: "Unique Viewers", note: "Broad digital reach" },
+        { value: "25.8K", label: "Initial Peak Views", note: "Early algorithmic spike" },
+        { value: "592", label: "Total Interactions", note: "Likes, comments, shares & saves" }
+      ],
+      tools: ["Instagram Professional Insights", "Meta Ad Tools", "Reels Creative Studio", "Meta Business Suite", "Interactive Stories", "Attribution & WhatsApp Funnel"],
+      takeaway: {
+        title: "Sustaining Momentum & Converting Viewers",
+        text: "The account generated 63,419 views and 53,237 viewers during the 30-day period, with a clear increase in views toward the end of the month. The ongoing focus is sustaining that momentum, improving engagement, and converting content visibility into follower growth and meaningful business outcomes.",
+        note: "This report is based on the Instagram insights screenshot provided. Content-type breakdowns, reach, paid versus organic performance, profile visits and sales attribution were not visible, so they have not been assumed. Prepared by Primetask Media (Creative • Strategy • Growth)."
+      }
+    }
   },
   {
     name: "Mishael",
@@ -649,18 +755,56 @@ export const workCategories = [
   "Social Media Growth",
   "Paid Ads",
   "Lead Generation",
-  "Festive Campaign",
 ];
 
 export const works = [
   {
-    title: "Masala Code, Indore",
+    title: "ViralBlues · Wear Your Mood",
     category: "Social Media Growth",
-    result: "Zero to premium brand in a saturated market",
+    result: "63.4K+ views & 53.2K+ unique audience with viral surge",
     summary:
-      "Launched with no digital presence. Built social proof, then story, then a sensory ad campaign that made people crave the experience before stepping inside.",
-    // image: "/works/masala-code.jpg",
-    link: "https://www.instagram.com/masalacodeindore/",
+      "Relatable lifestyle reel engineered for high viral distribution, streetwear storytelling, and youth community engagement.",
+    video: "/viral-blues.mp4",
+    poster: "/viral-blues-poster.jpg",
+    link: "https://www.instagram.com/",
+  },
+  {
+    title: "ViralBlues · Wear Your Story",
+    category: "Paid Ads",
+    result: "Studio creative direction & high-converting ad angles",
+    summary:
+      "Creative studio photoshoot showcasing graphic streetwear, neo-noir atmospheric lighting, and high-conversion ad angles.",
+    image: "/viralblues-creative-1.jpeg",
+    isCreative: true,
+    link: "https://www.instagram.com/",
+  },
+  {
+    title: "ViralBlues · Good Vibes Always",
+    category: "Social Media Growth",
+    result: "Multi-million organic views & viral digital reach",
+    summary:
+      "Apparel brand campaign blending relatable quotes, neo-smoke lighting, and aspirational mood-wear positioning.",
+    image: "/viralblues-creative-2.jpeg",
+    isCreative: true,
+    link: "https://www.instagram.com/",
+  },
+  {
+    title: "Royal Enfield, Asmit's · Showroom & Delivery",
+    category: "Social Media Growth",
+    result: "+3,900% follower surge & 16.6K+ views with +100% visibility lift",
+    summary:
+      "High-energy showroom and motorcycle lifestyle reels engineered for test-ride bookings and authentic community recall.",
+    video: "/royal-enfield.mp4",
+    link: "https://www.instagram.com/",
+  },
+  {
+    title: "Royal Enfield · Experience & Test Ride",
+    category: "Social Media Growth",
+    result: "Top organic reach & local engagement in Howrah",
+    summary:
+      "Dynamic on-ground motorcycle walkarounds and rider lifestyle storytelling driving showroom test rides.",
+    video: "/royal-enfield-2.mp4",
+    link: "https://www.instagram.com/",
   },
   {
     title: "Chaa Kahon, Uttarpara",
@@ -668,69 +812,16 @@ export const works = [
     result: "Content-led growth for a local tea brand",
     summary:
       "Review-led and meme-led content that drove reach and recall for a neighbourhood tea brand.",
-    // image: "/works/chaa-kahon.jpg",
+    video: "/chaa-kahon.mp4",
     link: "https://www.facebook.com/reel/930458005807765",
   },
   {
-    title: "Wah Boutique, Kolkata",
-    category: "Paid Ads",
-    result: "+47% sales, 3X ROAS, 250K+ reach in 60 days",
-    summary:
-      "Engagement-driven content, model collaboration shoots and retargeting ads recovered lost sales and lifted a local fashion brand.",
-    // image: "/works/wah-boutique.jpg",
-  },
-  {
-    title: "Mishael",
-    category: "Social Media Growth",
-    result: "500K+ reach, 4X engagement, 15% follower growth in 2 months",
-    summary:
-      "Trend-driven luxury reels, aspirational storytelling and influencer features took a niche label to viral reach.",
-    // image: "/works/mishael.jpg",
-    link: "https://www.instagram.com/mishael_official/",
-  },
-  {
-    title: "R3 Interiors, Kolkata",
+    title: "Fullfilled 4 You",
     category: "Lead Generation",
-    result: "32 high-intent leads in 21 days, 2 projects confirmed",
+    result: "Scaled B2B logistics reach & client acquisition",
     summary:
-      "High-trust before/after creative, Meta lead-form ads and a WhatsApp follow-up funnel replaced time-wasting DMs with serious buyers.",
-    // image: "/works/r3-interiors.jpg",
-  },
-  {
-    title: "YR Fitness",
-    category: "Social Media Growth",
-    result: "0 to 88.9K+ reach, 20+ walk-ins in 4 weeks",
-    summary:
-      "Hyper-local reels and a festival referral hook took an invisible gym to a talked-about local brand in a month.",
-    // image: "/works/yr-fitness.jpg",
-    link: "https://www.instagram.com/yrfitnessofficial/",
-  },
-  {
-    title: "Pool Cafe, Konnagar",
-    category: "Paid Ads",
-    result: "25K+ reach, 40+ walk-ins, 80+ WhatsApp queries in 3 weeks",
-    summary:
-      "Geo-targeted awareness ads and limited-time offers on a tiny daily budget filled weekends at a new pool cafe.",
-    // image: "/works/pool-cafe.jpg",
-    link: "https://www.instagram.com/poolcafe_official/",
-  },
-  {
-    title: "Cafe Coutume",
-    category: "Paid Ads",
-    result: "5X ROAS, 35% drop in cost per acquisition",
-    summary:
-      "Refined targeting, creative A/B testing and retargeting turned high ad costs into high profit for a premium cafe.",
-    // image: "/works/cafe-coutume.jpg",
-    link: "https://www.instagram.com/reel/DRSScsBEhUT/",
-  },
-  {
-    title: "Chowdhury Jewellers",
-    category: "Festive Campaign",
-    result: "First 40 online orders, record festive sales, 2.3x engagement",
-    summary:
-      "A Rath Yatra 2025 phygital campaign blended heritage with an online booking system, converting digital reach into in-store visits.",
-    // image: "/works/chowdhury-jewellers.jpg",
-    link: "https://www.instagram.com/reel/DOJSppclENQ/",
+      "Relatable video marketing and organic reel storytelling driving client inquiries for an e-commerce fulfillment leader.",
+    video: "/fullfilled-for-u.mp4",
   },
 ];
 
@@ -785,9 +876,9 @@ export const contact = {
   headingAccent: "Recall?",
   desc:
     "Have a project in mind, or want to audit your brand presence? Drop us a line and our team will get back within 24 hours.",
-  email: "contact@primetaskmedia.com",
-  phone: "+91 8420736756",
-  location: "Kolkata, West Bengal, India",
+  email: "info@primetaskmedia.in",
+  phone: "+91 84207 36756",
+  location: "M8HW+8RQ Uttarpara, West Bengal",
   services: [
     "Primetask Core Package",
     "Primetask Growth Package",
@@ -819,9 +910,9 @@ export const footer = {
     "Customer Loyalty Programs",
   ],
   contacts: {
-    email: "contact@primetaskmedia.com",
-    phone: "+91 8420736756",
-    address: "Kolkata, West Bengal, India",
+    email: "info@primetaskmedia.in",
+    phone: "+91 84207 36756",
+    address: "M8HW+8RQ Uttarpara, West Bengal",
   },
   socials: {
     facebook: "https://www.facebook.com/BarnavoPrimemedia/",
@@ -830,7 +921,7 @@ export const footer = {
     linkedin: "https://www.linkedin.com/company/primetask-media/home/",
   },
   copyright: `© ${new Date().getFullYear()} PRIMETASK MEDIA. All rights reserved.`,
-  operatingName: "Operating Trade Name: PRIMETASK MEDIA • Kolkata, India",
+  operatingName: "Operating Trade Name: PRIMETASK MEDIA • Uttarpara, West Bengal, India",
   policies: ["Privacy Policy", "Terms of Service", "Cancellation & Refund"]
 };
 

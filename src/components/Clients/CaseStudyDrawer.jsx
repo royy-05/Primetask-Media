@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ArrowUpRight, CheckCircle2, TrendingUp, Sparkles, Layers } from 'lucide-react';
+import { X, ArrowUpRight, CheckCircle2, TrendingUp, Sparkles, Layers, Clock, Film, Play } from 'lucide-react';
 import './CaseStudyDrawer.css';
 
 export const CaseStudyDrawer = ({ isOpen, onClose, client }) => {
@@ -101,6 +101,12 @@ export const CaseStudyDrawer = ({ isOpen, onClose, client }) => {
                 <p className="csDrawerSubtitle">
                   {caseStudy.tag}
                 </p>
+                {caseStudy.period && (
+                  <div className="csDrawerPeriodTag">
+                    <Clock size={13} />
+                    <span>Audit Period: {caseStudy.period}</span>
+                  </div>
+                )}
               </div>
 
               {/* Metrics Grid */}
@@ -127,17 +133,60 @@ export const CaseStudyDrawer = ({ isOpen, onClose, client }) => {
                 </div>
               )}
 
+              {/* Campaign Creatives Showcase */}
+              {caseStudy.creatives && caseStudy.creatives.length > 0 && (
+                <div className="csCreativesSection">
+                  <span className="csSectionSmallLabel">
+                    <Sparkles size={13} />
+                    <span>CAMPAIGN CREATIVES & VISUAL IDENTITY</span>
+                  </span>
+                  <div className="csCreativesGrid">
+                    {caseStudy.creatives.map((imgSrc, idx) => (
+                      <div key={idx} className="csCreativeCard">
+                        <img src={imgSrc} alt={`Campaign creative ${idx + 1}`} className="csCreativeImg" />
+                        <div className="csCreativeOverlay">
+                          <span className="csCreativeTag">Campaign Visual Asset 0{idx + 1}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Featured Performance Reel */}
+              {caseStudy.video && (
+                <div className="csVideoSection">
+                  <span className="csSectionSmallLabel">
+                    <Film size={13} />
+                    <span>FEATURED PERFORMANCE REEL</span>
+                  </span>
+                  <div className="csVideoCard">
+                    <video
+                      src={caseStudy.video}
+                      controls
+                      playsInline
+                      preload="metadata"
+                      className="csDrawerVideoElement"
+                    />
+                  </div>
+                </div>
+              )}
+
               {/* About / Foundation Narrative */}
-              {caseStudy.about && (
+              {(caseStudy.about || caseStudy.startingFromZero) && (
                 <div className="csNarrativeCard csZeroCard">
                   <div className="csNarrativeHeader">
                     <span className="csNarrativeTag">FOUNDATION</span>
                     <h3 className="csNarrativeTitle">
-                      {typeof caseStudy.about === 'object' ? caseStudy.about.title : "Background"}
+                      {typeof (caseStudy.about || caseStudy.startingFromZero) === 'object' 
+                        ? (caseStudy.about || caseStudy.startingFromZero).title 
+                        : "Background"}
                     </h3>
                   </div>
                   <p className="csNarrativeDesc">
-                    {typeof caseStudy.about === 'object' ? caseStudy.about.text : caseStudy.about}
+                    {typeof (caseStudy.about || caseStudy.startingFromZero) === 'object' 
+                      ? (caseStudy.about || caseStudy.startingFromZero).text 
+                      : (caseStudy.about || caseStudy.startingFromZero)}
                   </p>
                 </div>
               )}
@@ -214,6 +263,11 @@ export const CaseStudyDrawer = ({ isOpen, onClose, client }) => {
                   <p className="csSensoryDesc">
                     {caseStudy.takeaway ? caseStudy.takeaway.text : caseStudy.sensoryCampaign.desc}
                   </p>
+                  {caseStudy.takeaway?.note && (
+                    <div className="csAuditReportNote">
+                      <strong>Audit Note:</strong> {caseStudy.takeaway.note}
+                    </div>
+                  )}
                 </div>
               )}
             </div>

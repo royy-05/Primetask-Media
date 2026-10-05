@@ -6,12 +6,12 @@ import './Services.css';
 
 // High-impact imagery for each of the 6 Primetask Media services
 const serviceImages = [
-  "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop", // Integrated Phygital Campaigns
-  "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=800&auto=format&fit=crop", // Cinema & On-Ground Visibility
-  "https://images.unsplash.com/photo-1556742049-0a67c5574f73?q=80&w=800&auto=format&fit=crop", // Retention & WhatsApp Marketing
-  "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop", // Social Media & Content
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop", // Brand Recall Strategy
-  "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=800&auto=format&fit=crop"  // Customer Loyalty Programs
+  "/services/phygital-campaigns.jpg", // Integrated Phygital Campaigns
+  "/services/cinema-visibility.jpg",  // Cinema & On-Ground Visibility
+  "/services/whatsapp-retention.jpg", // Retention & WhatsApp Marketing
+  "/services/social-content.jpg",     // Social Media & Content
+  "/services/brand-recall.jpg",       // Brand Recall Strategy
+  "/services/customer-loyalty.jpg"    // Customer Loyalty Programs
 ];
 
 // Generous staggered vertical offsets for 3 columns spreading across the canvas

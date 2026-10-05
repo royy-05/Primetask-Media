@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Sun, Moon, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { Logo } from '../Logo/Logo';
 import { Magnet } from '../Animations/ReactBits';
 import './Header.css';
@@ -9,7 +9,6 @@ export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [theme, setTheme] = useState('dark');
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -45,11 +44,6 @@ export const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-  };
 
   const handleNavClick = (item) => {
     setIsMobileOpen(false);
@@ -104,14 +98,6 @@ export const Header = () => {
         </nav>
 
         <div className="headerActions">
-          <button 
-            className="themeToggleBtn" 
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-            title={theme === 'dark' ? "Switch to Light Mode" : "Switch to Dark Mode"}
-          >
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
 
           <div className="headerCTA">
             <Magnet range={50} strength={0.3}>
