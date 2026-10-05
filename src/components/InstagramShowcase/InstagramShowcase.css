@@ -4,7 +4,7 @@
 
 .instaEmbedSection {
   position: relative;
-  padding: 85px 0 100px;
+  padding: 85px 0 60px;
   background-color: var(--bg);
   border-top: 1px solid var(--border);
   overflow: hidden;
@@ -185,7 +185,7 @@
 
 @media (max-width: 768px) {
   .instaEmbedSection {
-    padding: 60px 0 80px;
+    padding: 60px 0;
   }
 
   .instaEmbedHeader {
