@@ -304,7 +304,7 @@ export const ContactPage = () => {
                   <div className="successCheckCircle">
                     <CheckCircle2 size={48} />
                   </div>
-                  <h3 className="successTitle">Sprint Application Submitted!</h3>
+                  <h3 className="successTitle">Application Submitted!</h3>
                   <p className="successDesc">
                     Thank you, <strong>{formData.brandName || 'Founder'}</strong>. Your responses for the 60-Day Strategic Sprint have been logged.
                   </p>
@@ -331,7 +331,7 @@ export const ContactPage = () => {
               ) : (
                 <form onSubmit={handleSubmit} className="sprintApplicationForm">
                   <div className="formHeader">
-                    <div className="formHeaderBadge">60-DAY SPRINT APPLICATION</div>
+                    <div className="formHeaderBadge">Strategic Sprint applicable form</div>
                     <h3 className="formBoxTitle">Founder & Brand Evaluation</h3>
                     <p className="formBoxSubtitle">
                       * Indicates required question. Please answer candidly so we can evaluate fit.
@@ -720,7 +720,7 @@ export const ContactPage = () => {
 
                   <Magnet range={60} strength={0.25}>
                     <button type="submit" className="sprintSubmitBtn" disabled={isSubmitting}>
-                      <span>{isSubmitting ? 'Submitting Application...' : 'Submit 60-Day Sprint Application'}</span>
+                      <span>{isSubmitting ? 'Submitting Application...' : 'Submit Sprint Application'}</span>
                       <Send size={18} />
                     </button>
                   </Magnet>
