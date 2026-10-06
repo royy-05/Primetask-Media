@@ -159,7 +159,7 @@ export const ContactPage = () => {
               transition={{ duration: 0.5 }}
             >
               <Sparkles size={14} className="sprintPillSparkle" />
-              <span>For Hospitality & DTC Founders Only &bull; Limited Q3/Q4 Enrolment</span>
+              <span>Limited Enrolment</span>
             </motion.div>
 
             <motion.h1 
